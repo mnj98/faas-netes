@@ -334,7 +334,7 @@ func createResources(request types.FunctionDeployment) (*apiv1.ResourceRequireme
 		Limits:   apiv1.ResourceList{},
 		Requests: apiv1.ResourceList{},
 	}
-
+    resources.Limits["nvidia.com/gpu"] = 1
 	// Set Memory limits
 	if request.Limits != nil && len(request.Limits.Memory) > 0 {
 		qty, err := resource.ParseQuantity(request.Limits.Memory)
